@@ -1,9 +1,13 @@
 import React, { FC } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
 import "./Header.scss";
 
 const Header: FC = () => {
+  const { current } = useSelector((state: any) => state.user);
+  const { id } = current;
+  console.log(current);
   return (
     <header className="header">
       <Container>
@@ -18,17 +22,25 @@ const Header: FC = () => {
               Hoang Triet Dev
             </a>
           </Col>
-
-          <Col xs="auto">
-            <NavLink
-              exact
-              className="header__link"
-              to="/sign-in"
-              activeClassName="header__link--active"
-            >
-              Sign In
-            </NavLink>
-          </Col>
+          {!id && (
+            <Col xs="auto">
+              <NavLink
+                exact
+                className="header__link"
+                to="/sign-in"
+                activeClassName="header__link--active"
+              >
+                Sign In
+              </NavLink>
+            </Col>
+          )}
+          {id && (
+            <img
+              src={current.photoUrl}
+              style={{ width: 40, borderRadius: 100 }}
+              alt="Generic placeholder image"
+            />
+          )}
         </Row>
       </Container>
     </header>
