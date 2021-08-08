@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo Link
+[http://hoangtrietdev-photo-app.surge.sh/photos](http://hoangtrietdev-photo-app.surge.sh/photos)
+
+## Set up .env
+Use file .env.example and remove the extension .example of this file.
+Put your Backend Api, Firebase Api key and domain to {yourUrl} {yourKey} {yourDomain}
+
 ## Available Scripts
 
 In the project directory, you can run:
